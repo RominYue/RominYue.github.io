@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Leetcode Problem 1-5 | 沐凡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="leetcode 源代码">
+<meta name="keywords" content="leetcode,c++,python,源代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode Problem 1-5">
+<meta property="og:url" content="http://yoursite.com/2014/10/13/dayone/index.html">
+<meta property="og:site_name" content="沐凡">
+<meta property="og:description" content="leetcode 源代码">
+<meta property="og:image" content="http://bbs.dlut.edu.cn/att.php?p.193.23474.7298.png">
+<meta property="og:updated_time" content="2017-10-04T15:39:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Leetcode Problem 1-5">
+<meta name="twitter:description" content="leetcode 源代码">
+<meta name="twitter:image" content="http://bbs.dlut.edu.cn/att.php?p.193.23474.7298.png">
+  
+    <link rel="alternate" href="/atom.xml" title="沐凡" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">沐凡</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-dayone" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/13/dayone/" class="article-date">
+  <time datetime="2014-10-13T00:49:34.000Z" itemprop="datePublished">2014-10-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/leetcode/">leetcode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Leetcode Problem 1-5
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>源代码push到了github上,戳<a href="https://github.com/RominYue/leetcode" target="_blank" rel="external">这里</a></p>
+<p>###Problem 1: Two sum<br>题目描述: 在一数组中,找到下标不同的两个数,使得两数之和等于一个给定的值.<br>解法1: 循环两次扫描数组,找到两个下标. 时间复杂度 O(n2), 空间复杂度 O(1).<br>解法2: 将数组排序,从第一个数开始扫描,在他之后的数用二分查找找出另外一个数. 时间复杂度O(nlogn), 空间复杂度O(n).<br><a id="more"></a></p>
+<p>###Problem 2: Longest Substring Without Repeating Characters<br>题目描述: 给定一字符串,找出最长的不含有重复字符的子串.<br>解法1: 枚举子串的起点和终点,O(n)判断是否是满足条件的子串.总的时间复杂度为O(n3), 空间复杂度O(1).<br>解法2: 用idx数组记录当前字符的前面离他最近的相同字符的下标,这样两个相邻相同字符之间肯定是满足条件的子串. 时间复杂度O(n), 空间复杂度O(k),常量空间</p>
+<p>###Problem 3: Add Two Numbers<br>题目描述: 给定两个数字,用链表表示,且是逆序表示,将两数相加,结果用链表逆序表示<br>输入输出样例:</p>
+<pre><code>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)
+Output: 7 -&gt; 0 -&gt; 8
+</code></pre><p>解法: Two Pointers, 两个指针在两个链表上游走逐位相加,最后要注意的是加完之后可能会多出进位的一位数字,要判断一下. 时间复杂度 O(n + m).</p>
+<p>###Problem 4: Median of Two Sorted Arrays<br>题目描述: 给定两个排好序的数组,找出他们的中位数.<br>解法1: 将两数组合并成一个数组,排序,找中位数. 时间复杂度O(n + m),空间复杂度O(n + m)<br>解法2: Two Pointers. 两个指针比较向前走,同时加上一个计数器,记录是否已经走到中位数处. 时间复杂度O(n + m), 空间复杂度O(1).<br>解法3: 泛化成在俩排序数组中寻找第K小数.在解法2的基础上,每次比较的不是1个数,而是k/2个数,这样一下子就可以丢弃一半的数.具体可以参考<a href="http://blog.csdn.net/zxzxy1988/article/details/8587244" target="_blank" rel="external">这里</a>. 时间复杂度O(log(n + m))</p>
+<p>###Problem 5: Longest Palindromic Substring<br>题目描述: 最长回文子串<br>解法:经典问题</p>
+<ul>
+<li>dp解法 时间复杂度O(n2)/空间复杂度O(n2) </li>
+<li>中心扩展法 时间复杂度O(n2)/空间复杂度O(1)</li>
+<li>马拉车算法 时间复杂度O(n)/空间复杂度O(n).具体参考<a href="http://blog.csdn.net/zxdfc/article/details/11579499" target="_blank" rel="external">这里</a>和<a href="http://www.cnblogs.com/wuyiqi/archive/2012/06/25/2561063.html" target="_blank" rel="external">这里</a>.  </li>
+</ul>
+<p>现在来说明一下为什么马拉车算法他是O(n)的.先看代码:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//maxrange == mx (图中的)</span></div><div class="line"><span class="keyword">int</span> p[<span class="number">2200</span>], maxrange = <span class="number">0</span>, id = <span class="number">0</span>;</div><div class="line"><span class="built_in">memset</span>(p,<span class="number">0</span>,<span class="keyword">sizeof</span>(p));</div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n ; i++)</div><div class="line">&#123;</div><div class="line">  <span class="keyword">if</span>(i &lt; maxrange) p[i] = min(p[<span class="number">2</span>*id - i],maxrange- i);</div><div class="line">  <span class="keyword">else</span> p[i] = <span class="number">1</span>;</div><div class="line"></div><div class="line">  <span class="keyword">while</span>(str[i + p[i]] == str[i - p[i]]) p[i] ++;</div><div class="line"></div><div class="line">  <span class="keyword">if</span>(p[i] + i &gt; maxrange)</div><div class="line">  &#123;</div><div class="line">     maxrange = p[i] + i;</div><div class="line">     id = i;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://bbs.dlut.edu.cn/att.php?p.193.23474.7298.png" alt=""></p>
+<p>主要实在上图第一种情况下( i + p[i] &lt;= maxrange),此时在向两边拓展,执行  while(str[i + p[i]] == str[i - p[i]]) p[i] ++ 的时候,一般情况下是失败的.为什么呢?因为如果要是成功的话,那么镜像翻转之后p[j]的值也会增加.换句话说,p[j]的值便是p[i]的值的上限.仅有一种情况除外,就是p[j]的值包含了边界,这样 p[i]向外扩展才有可能成功.因此可以认为所有符合第一种情况的时间复杂度是O(1).  </p>
+<p>其他情况的都是从maxrange以后开始向外扩展,假设向外扩展了K步,则此步花费时间O(k),那么接下来的K步都将花费O(1).(依据上述)那么相当于从下标j跳到下标 j+k+1 花费了O(2<em>k). 所以,从下标1到下标n实际上是由几段的k组成的,总花费为O(2</em>k1+2<em>k2+2</em>k3…) = O(2*n),是线性的.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/10/13/dayone/" data-id="cj8d7hkg80007u1seygvs0wge" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/10/15/day-two/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          Leetcode Problem 6-10
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/10/08/bit-tree/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">树状数组小结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Catégories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DataStructure/">DataStructure</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Octopress/">Octopress</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/10/01/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/10/redefine-yourself/">Re-define Yourself</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/19/dream-about-you/">梦里戏外全是你</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/17/day-four/">Leetcode Problem 16-20 K-sum专题</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/17/day-three/">Leetcode Problem 11-15</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Romin Yue<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

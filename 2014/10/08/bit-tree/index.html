@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>树状数组小结 | 沐凡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="介绍常用的数据结构之树状数组">
+<meta name="keywords" content="树状数组,算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树状数组小结">
+<meta property="og:url" content="http://yoursite.com/2014/10/08/bit-tree/index.html">
+<meta property="og:site_name" content="沐凡">
+<meta property="og:description" content="介绍常用的数据结构之树状数组">
+<meta property="og:image" content="http://images.cppblog.com/cppblog_com/ylemzy/b_25F1665EFE7011E2D2EF878AB4C18939.jpg">
+<meta property="og:image" content="http://img.my.csdn.net/uploads/201410/08/1412756963_6842.png">
+<meta property="og:updated_time" content="2017-10-04T15:39:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="树状数组小结">
+<meta name="twitter:description" content="介绍常用的数据结构之树状数组">
+<meta name="twitter:image" content="http://images.cppblog.com/cppblog_com/ylemzy/b_25F1665EFE7011E2D2EF878AB4C18939.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="沐凡" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">沐凡</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-bit-tree" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/08/bit-tree/" class="article-date">
+  <time datetime="2014-10-08T08:28:36.000Z" itemprop="datePublished">2014-10-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/DataStructure/">DataStructure</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      树状数组小结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近做了几道树状数组的题目，借此想巩固一下已学到的知识.<br><a href="http://hawstein.com/posts/binary-indexed-trees.html" target="_blank" rel="external">这里</a>推荐给大家一份翻译过来的讲树状数组的资料，非常值得一看.<br>树状数组的代码比较简单，也不易出错，网上有许多介绍这方面的资料，在这里就不在赘述。下面贴上我用的代码.<br><a id="more"></a><br><img src="http://images.cppblog.com/cppblog_com/ylemzy/b_25F1665EFE7011E2D2EF878AB4C18939.jpg" alt=""><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> idx, <span class="keyword">int</span> val)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">while</span>(idx &lt;= maxn)</div><div class="line">    &#123;</div><div class="line">        c[idx] += val;</div><div class="line">        idx += idx &amp; -idx;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getsum</span><span class="params">(<span class="keyword">int</span> idx)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(idx &gt; <span class="number">0</span>)</div><div class="line">    &#123;</div><div class="line">        sum += c[idx];</div><div class="line">        idx -= idx &amp; -idx;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> sum;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><em>注意：树状数组只能处理大于0的下标，如果有0的话上述函数会陷入死循环.</em></p>
+<p>###01 区间求和类问题<br>很显然，树状数组比较常用的功能就是维护区间和.当然，线段树也可以完成，但是编码比较复杂，稍不容易就出错.</p>
+<p>####(1)单点修改，区间查询<br>树状数组的基本功能，不做过多解释.注意一点:求和可能会爆int.</p>
+<p>####(2)区间修改，单点查询<br>有趣的是，这种问题树状数组的代码并没有改动，只是意义发生了变化.<br><img src="http://img.my.csdn.net/uploads/201410/08/1412756963_6842.png" alt=""></p>
+<p>如上图，a[]数组是原数组.现在有一操作，修改[l,r]之间的元素，使之区间元素全部加1，但是树状数组更新的只能是单点，那应该怎么办呢？<br>我们把区间的第一个元素加1之后，该元素之后的所有的元素都加1，我们再在区间后的第一个元素减一，这样该元素之后所有的元素都减一，相当于之后的元素没有受到区间修改的影响.这样我们在做getsum的操作的时候，b[i] = getsum(i);此时b[]数组就是修改后各个元素的值.<br>即：<em>区间修改，修改区间的第一个元素，区间后的第一个元素；单点查询求的是 [1- i]的和.</em></p>
+<p>####(3)区间修改，区间查询<br>这类问题我上网搜了一些文章，感觉偏离了树状数组的本意，故在这里不做过多探究.自己就打算用线段树写这类问题了，大家如果感兴趣可以搜一搜这一类的文章读一读.</p>
+<p>####(4)扩展：<br>如果有这样的操作，i , k，将a[ i ]与k异或，即单点修改变成了异或修改，区间询问也变成了区间异或的结果，那该怎么办？<br>稍微改一下函数即可.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> idx, <span class="keyword">int</span> val)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">while</span>(idx &lt;= n)</div><div class="line">    &#123;</div><div class="line">        c[idx] ^= val;</div><div class="line">        idx += idx &amp; -idx;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getsum</span><span class="params">(<span class="keyword">int</span> idx)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(idx &gt; <span class="number">0</span>)</div><div class="line">    &#123;</div><div class="line">        sum ^= c[idx];</div><div class="line">        idx -= idx &amp; -idx;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> sum;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>题目链接:<br><a href="http://acm.neu.edu.cn/hustoj/problem.php?id=1454" target="_blank" rel="external">http://acm.neu.edu.cn/hustoj/problem.php?id=1454</a><br><a href="http://acm.dlut.edu.cn/problem.php?id=1263" target="_blank" rel="external">http://acm.dlut.edu.cn/problem.php?id=1263</a></p>
+<p>区间修改的一些题目：<br><a href="http://poj.org/problem?id=2352" target="_blank" rel="external">POJ 2352 Stars</a> 排序，降维统计个数<br><a href="http://poj.org/problem?id=3067" target="_blank" rel="external">POJ 3067 Japan</a> 排序之后，就是统计逆序对数了<br><a href="http://poj.org/problem?id=2481" target="_blank" rel="external">POJ 2481 Cows</a>  这一题比较难，排序之后就和上面一样了<br><a href="http://poj.org/problem?id=3321" target="_blank" rel="external">POJ 3321 Apple Tree</a> 求结点的子树权值和.难点之处在于如何将数转换为连续区间,这就是dfs的巧妙之处<br><a href="http://acm.dlut.edu.cn/problem.php?id=1067" target="_blank" rel="external">DOJ 1067</a> 区间求和，单点修改.顺带求一个第K小数.开两个树状数组，一个求和，一个统计个数，注意一点的是对数组的数做个离散化处理<br><a href="http://acm.hit.edu.cn/hoj/problem/view?id=1867" target="_blank" rel="external">HOJ 1867 经理的烦恼</a> 这题wa的我快吐了.可以先打素数表.首先判素数，居然不会超时.更新的时候注意更新前是否是素数<br><a href="http://acm.tju.edu.cn/toj/showp3243.html" target="_blank" rel="external">TJU 3243 Blocked Road</a> 这题主要在于如果判断是否连通，直接开了2*n的数组，把环拆了</p>
+<p>###02 求序列第K小数<br>求序列的第K大数，可以转换为求序列的第N-K小数。</p>
+<p>####(1)方法一：二分搜索     复杂度：O(logN <em> logN)<br>树状数组统计比num小的数出现的次数，那么只要找到Getsum（i）== K，那么 i 就是第K小数。</em>注意 ：getsum（i）for i in [1 - n]是一个递增序列，可以二分搜索*<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">find_Kth</span><span class="params">(<span class="keyword">int</span> k)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> l = <span class="number">1</span>, r = n, mid;</div><div class="line">    <span class="keyword">while</span>(l &lt;= r)</div><div class="line">    &#123;</div><div class="line">        mid = (l + r) &gt;&gt; <span class="number">1</span>;</div><div class="line">        <span class="keyword">if</span>(getsum(mid) &gt;= k)r = mid - <span class="number">1</span>;</div><div class="line">        <span class="keyword">else</span> l = mid + <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> l;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>思考：一开始我认为如果序列中有重复的数怎么办?如果数列不是连续的，比如getsum(i) = k,但是i并没有出现在序列中，搜索到它就返回了怎么办？</p>
+<p><em>注意这一句代码 if(getsum(mid) &gt;= k)</em>，我们每次二分的时候都尽量的往左边寻找第一个比k小的数，这样最后返回的 l 就一定在序列中存在，并且如果有重复的话，也一定是重复数字的第一个.</p>
+<p>####(2)方法二：二进制试加法    复杂度：O(logN)<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">find_kth</span><span class="params">(<span class="keyword">int</span> k)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>, ans = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">20</span>; i &gt;=<span class="number">0</span>; i--)</div><div class="line">    &#123;</div><div class="line">        ans += <span class="number">1</span> &lt;&lt; i;</div><div class="line">        <span class="keyword">if</span>(ans &gt;= maxn<span class="number">-5</span> || cnt + c[ans] &gt;= k)ans -= <span class="number">1</span> &lt;&lt; i;</div><div class="line">        <span class="keyword">else</span> cnt += c[ans];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ans + <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>算法流程：我们从二进制的最高位开始试加(默认最大值 &lt;= 1 &lt;&lt; 20，大概1000000)，统计ans之前数出现的次数，如果大于等于k，说明此次试加失败，该二进制位不可能是1，只能是0.<em>那么我们最后的ans恰好比第K小数小1.原因(同方法一)</em></p>
+<p>题目链接: <a href="http://acm.hdu.edu.cn/showproblem.php?pid=2852" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=2852</a></p>
+<p>###03 逆序对数<br>树状数组还可以解决逆序对数的问题.每次插入到树状数组中的时候，询问插入在它之前的数中有几个比他大，这就是该数的逆序对数，累加到答案中.</p>
+<p>题目练习:<br><a href="http://poj.org/problem?id=2299" target="_blank" rel="external">POJ 2299 求逆序对数</a><br><a href="http://acm.hit.edu.cn/hoj/problem/view?id=2275" target="_blank" rel="external">HOJ 2275 Number Sequence</a>    以a[ i ]为中心，分别统计左边比他小的数的个数，统计右边比他大的数的个数，开两个树状数组维护即可<br><a href="http://www.tyvj.cn/Problem_Show.aspx?id=1432" target="_blank" rel="external">Tyvj 1432 楼兰图腾</a>  此题和上题差不多，oj的评测好像有点问题<br><a href="http://poj.org/problem?id=1990" target="_blank" rel="external">POJ 1990</a>  这一题比较难，巧妙之处在于求和的转换，排序之后就和上面一样了.<br><a href="http://uva.onlinejudge.org/index.php?pid11610" target="_blank" rel="external">UVA 11610 Reverse Prime</a>  综合题，筛完1e6之内的素数，reverse之后就是所有的7位的所求数.这些数末尾都至少有一个0，这样都除以10，减小数据规模。然后对每个数求其素因子数（不要忘了刚才除以10，还有2，5这两个素因子），然后离散化，开两个树状数组维护</p>
+<p>####扩展：</p>
+<p>####(1) 现在考虑这样一个问题：在序列 a[ ]中，交换a[ i ] 与 a[ j ] ( i &lt; j )，则序列的逆序对数奇偶性有何变化？<br>假设a[ i ]，a[ i + 1]，a[ i + 2 ]，····，a[ j - 1]，a[ j ].并假设a[ i ]和a[ j ]之间有m个数.</p>
+<p>先考虑交换<em>相邻</em>的两个数.首先要确定的是，不会改变a[i]之前的数的逆序对数，也不会改变a[i+1]z之后的数的逆序对数.如果a[ i ] &gt; a[ i + 1]，交换后整个序列的逆序对数减1，反之则加1.也就是说，<em>每一次相邻交换都会改变逆序对数的奇偶性.</em>（相邻两个数相等的情况不考虑）</p>
+<p>现在考虑交换a[ i ]，a[ j ].可以看做三个过程的相加.</p>
+<ul>
+<li><p>1) a[ i ]先和他后面的数一一做相邻交换，做了m次交换.</p>
+</li>
+<li><p>2} a[ i ]与a[ j ]再做相邻交换，此时做了1次相邻交换.</p>
+</li>
+<li><p>3) a[ j ]与他前面的数一一做相邻交换，交换到a[ i ]之前的位置，会有m次交换.</p>
+</li>
+</ul>
+<p>对换a[ i ]，a[ j ]总共做了2m + 1次相邻交换，由第一种考虑情况知，每做一次相邻交换都会改变奇偶性，所以此次<em>对换i，j的操作也改变逆序对数的奇偶性.</em></p>
+<p>题目链接: <a href="http://acm.dlut.edu.cn/problem.php?id=1284" target="_blank" rel="external">http://acm.dlut.edu.cn/problem.php?id=1284</a></p>
+<p>####(2)接着考虑一下，在序列 a[ ]中，交换a[ i ] 与 a[ j ] ( i &lt; j )，则序列的逆序对数个数有何变化？<br>自然而然的想到，如果要知道逆序对数的变化，我们需要知道在区间 [ i , j ]内，比a[ i ]小的数的个数 num_less_i，比 a [ i ]大的数的个数 num_larger_i，比a[ j ]小的个数num_less_j，比a[ j ]大的数的个数 num_larger_j.则个数变化可表示为：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">change_num = - num_less_i + num_larger_i + num_less_j - num_larger_j</div></pre></td></tr></table></figure></p>
+<p>下面的问题是如何快速求出这些值.因为区间内的数的个数是一定的，为 j - i 个，所以只需要求 num_less_i，num_less_j 即可.</p>
+<p>下面介绍一种O(1)的方法，但是空间开销比较大.（一直在寻找一种更好的方法，如果大家知道，欢迎与我讨论）</p>
+<p>令cnt[ i ][ j ]表示到位置i为止（包括i），比j小的数的个数.那么<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">num_less_i = cnt[j][a[i]] - cnt[i][a[i]];</div><div class="line">num_larger_i = j - i - num_less_i;</div><div class="line">num_less_j = cnt[j][a[j]] - cnt[i][a[j]];</div><div class="line">num_larger_j = j - i  - <span class="number">1</span> - num_less_j;</div><div class="line"><span class="comment">//第四行的减一是减去a[j]本身也算一个数</span></div><div class="line"><span class="comment">//大家自己可以画一画，不难推出</span></div></pre></td></tr></table></figure></p>
+<p>至于cnt数组完全可以预处理出来：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//递推求cnt数组</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</div><div class="line">&#123;</div><div class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;=n; j++)</div><div class="line">   &#123;</div><div class="line">       <span class="keyword">if</span>(a[i] &lt; j)cnt[i][j] = cnt[i<span class="number">-1</span>][j] + <span class="number">1</span>;</div><div class="line">       <span class="keyword">else</span> cnt[i][j] = cnt[i<span class="number">-1</span>][j];</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>此时就可以快速的查询交换a[ i ]，a[ j ]之后逆序对数的变化了.</p>
+<p>题目链接: <a href="http://codeforces.com/contest/362/problem/C" target="_blank" rel="external">http://codeforces.com/contest/362/problem/C</a></p>
+<p>####(3)现在已知这样一个序列b，b[ i ] (  1 &lt;=i &lt;= n )表示 i 在另外一个序列中的逆序对数，试问能否构造出这样的一个1-n的排列，满足b序列？<br>这个问题刚好和求逆序对数反了过来。举个例子，b序列 1 ,2 , 0, 1, 0.如何构造呢？</p>
+<p>不妨试一试.1的逆序对数是1，也就是说，1在新序列中他的前面只能有1个比他大的数，但是1已经是最小数了，所以1必定处在第2的位置.构造序列： <em> 1 </em> _ <em>2的逆序对数是2，依照前面的分析方法，2必定处在第4的位置，即 </em> 1 <em> 2 </em>。换句话说，2要找到第3个空位.再换个角度，对于位置序列（1,2,3,4,5），数字1已经占据了第2的位置，所以将序列中的2删除-&gt;(1,3,4,5)，那么我们要寻找的2的插入位置不就是第3小的元素，也就是第b[ i ]小元素么.求第K小元素上面已经分析过了，树状数组可以搞定.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//算法伪代码</span></div><div class="line"><span class="comment">//ans为构造的序列</span></div><div class="line"><span class="comment">//c[]为位置序列</span></div><div class="line"><span class="keyword">for</span> i in b[i]:</div><div class="line">    pos = find_kth_elemnt( k )</div><div class="line">    ans[pos] = i;</div><div class="line">    <span class="comment">//在c[]数组中删除</span></div><div class="line">    update(pos,<span class="number">-1</span>);</div></pre></td></tr></table></figure></p>
+<p>题目连接: <a href="http://acm.dlut.edu.cn/problem.php?id=1210" target="_blank" rel="external">http://acm.dlut.edu.cn/problem.php?id=1210</a></p>
+<p>####(4)仍是上一题中的序列b，b[ i ]表示原序列中位置 i 处的逆序对数，问你能否构造出原序列？(原序列为1-n的一个排列)<br>注意此题和上一题的不同.但是可以采用和上一题的相同的思路去解决.比如b序列 0, 1, 2, 0, 1</p>
+<p>因为一个序列的第一个数的逆序对数总是为0，所以从前往后的分析不太靠谱.那么我们试一试从后向前分析.最后一个数的逆序对数为1，说明他前面只能有一个数比他大，显然最后一个数只能是4.即序列变成 <em> </em> <em> </em> 4. 倒数第二个数的逆序对数为0，则同样可确定该数只能是5.序列变成 <em> </em> _5 4. 倒数第三个数的逆序对数为2，可确定该数为1.有什么规律呢？用cnt表示还剩下的数，每次要填的数，是不是第cnt - b[ i ]小的数呢？倒数第一个数的逆序对数为1，要填的是第 5 - 1小的数，也就是4. 然后倒数第二个数的逆序对数为0，要填第 4 - 0小的数，在剩余的数里面就是5.以此类推.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//算法伪代码</span></div><div class="line"><span class="comment">//ans为构造的序列</span></div><div class="line"><span class="comment">// for i = n; i &gt; 0; i--</span></div><div class="line">   num = find_kth_element( i - b[i])</div><div class="line">   ans[i] = num</div><div class="line">   update(num,<span class="number">-1</span>)</div></pre></td></tr></table></figure></p>
+<p>题目链接: <a href="http://www.spoj.com/problems/ORDERS/" target="_blank" rel="external">http://www.spoj.com/problems/ORDERS/</a></p>
+<p>###04 二维树状数组<br><a href="http://www.java3z.com/cwbwebhome/article/article1/1369.html?id=4804" target="_blank" rel="external">这里</a>有一篇不错的文章，介绍了二维树状数组的一些想法，推荐给大家。给出我自己的代码。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j, <span class="keyword">int</span> val)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> x = i; x &lt;=n; x += x &amp; -x)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> y = j; y &lt;=n ;y += y &amp; -y)</div><div class="line">        c[x][y] += val;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getsum</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> x = i; x; x -= x &amp; -x)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> y = j;y; y -= y &amp; -y)</div><div class="line">        sum += c[x][y];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> sum;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>题目链接:</p>
+<p><a href="http://poj.org/problem?id=1195" target="_blank" rel="external">http://poj.org/problem?id=1195</a></p>
+<p><a href="http://poj.org/problem?id=2155" target="_blank" rel="external">http://poj.org/problem?id=2155</a></p>
+<p>另外，想要按照难度刷题的朋友们可戳<a href="http://hi.baidu.com/evilsham/item/b78db5c3d4f87a41bdef69b7" target="_blank" rel="external">这里</a>和<a href="http://blog.csdn.net/w00w12l/article/details/8212782" target="_blank" rel="external">这里</a>，基本上汇集了oj的题目</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/10/08/bit-tree/" data-id="cj8d7hkg00003u1sekbom0wly" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/10/13/dayone/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          Leetcode Problem 1-5
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/10/08/octopress-configuration/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">配置和定制 Octopress</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Catégories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DataStructure/">DataStructure</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Octopress/">Octopress</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/10/01/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/10/redefine-yourself/">Re-define Yourself</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/19/dream-about-you/">梦里戏外全是你</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/17/day-four/">Leetcode Problem 16-20 K-sum专题</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/17/day-three/">Leetcode Problem 11-15</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Romin Yue<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
