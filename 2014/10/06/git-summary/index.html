@@ -12,6 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                 alert('密码错误！');
+                 history.back();
+            }
+        }
+    })();
+ </script>
 
 
 
@@ -88,7 +98,7 @@
 <meta property="og:description" content="介绍git的一些常用命令">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://image.beekka.com/blog/2014/bg2014061202.jpg">
-<meta property="og:updated_time" content="2017-10-04T15:39:05.000Z">
+<meta property="og:updated_time" content="2017-10-17T15:08:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 总结">
 <meta name="twitter:description" content="介绍git的一些常用命令">
@@ -307,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
+                  <a href="/categories/工具杂谈/" itemprop="url" rel="index">
+                    <span itemprop="name">工具杂谈</span>
                   </a>
                 </span>
 
@@ -330,10 +340,6 @@
           
 
           
-              <div class="post-description">
-                  介绍git的一些常用命令
-              </div>
-          
 
         </div>
       </header>
@@ -348,61 +354,60 @@
       
 
       
-        <p>##01 安装git与初步配置<br>装完git之后，打开git bash 或者在命令行下 设置用户名和email<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name <span class="string">"Your name"</span></div><div class="line">$ git config --global user.email <span class="string">"email@example.com"</span></div></pre></td></tr></table></figure></p>
+        <blockquote class="blockquote-center"><p>介绍git的一些常用命令</p>
+</blockquote>
 <a id="more"></a>
-<p>##02 创建版本库</p>
-<p>###首先创建一个工作目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ mkdir <span class="built_in">test</span></div><div class="line">$ <span class="built_in">cd</span> <span class="built_in">test</span></div></pre></td></tr></table></figure></p>
-<p>###然后初始化新仓库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git init</div></pre></td></tr></table></figure></p>
-<p>##03 基本操作</p>
-<p>###将工作区中的文件添加到版本库中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git add example.txt</div><div class="line">$ git commit -m <span class="string">"example comment"</span></div></pre></td></tr></table></figure></p>
-<p>###检查文件/分支当前状态<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git status [filename]</div></pre></td></tr></table></figure></p>
-<p>###修改文件再次提交<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ <span class="comment"># modify operations</span></div><div class="line">$ git add example.txt</div><div class="line">$ git commit -m <span class="string">"modified"</span></div></pre></td></tr></table></figure></p>
-<p>###检查变化前和变化后的不同之处<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff [filename] (optional)</div></pre></td></tr></table></figure></p>
+<h2 id="01-安装git与初步配置"><a href="#01-安装git与初步配置" class="headerlink" title="01 安装git与初步配置"></a>01 安装git与初步配置</h2><p>装完git之后，打开git bash 或者在命令行下 设置用户名和email<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name <span class="string">"Your name"</span></div><div class="line">$ git config --global user.email <span class="string">"email@example.com"</span></div></pre></td></tr></table></figure></p>
+<!-- more -->
+<h2 id="02-创建版本库"><a href="#02-创建版本库" class="headerlink" title="02 创建版本库"></a>02 创建版本库</h2><h3 id="首先创建一个工作目录"><a href="#首先创建一个工作目录" class="headerlink" title="首先创建一个工作目录"></a>首先创建一个工作目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ mkdir <span class="built_in">test</span></div><div class="line">$ <span class="built_in">cd</span> <span class="built_in">test</span></div></pre></td></tr></table></figure>
+<h3 id="然后初始化新仓库"><a href="#然后初始化新仓库" class="headerlink" title="然后初始化新仓库"></a>然后初始化新仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git init</div></pre></td></tr></table></figure>
+<h2 id="03-基本操作"><a href="#03-基本操作" class="headerlink" title="03 基本操作"></a>03 基本操作</h2><h3 id="将工作区中的文件添加到版本库中"><a href="#将工作区中的文件添加到版本库中" class="headerlink" title="将工作区中的文件添加到版本库中"></a>将工作区中的文件添加到版本库中</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git add example.txt</div><div class="line">$ git commit -m <span class="string">"example comment"</span></div></pre></td></tr></table></figure>
+<h3 id="检查文件-分支当前状态"><a href="#检查文件-分支当前状态" class="headerlink" title="检查文件/分支当前状态"></a>检查文件/分支当前状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git status [filename]</div></pre></td></tr></table></figure>
+<h3 id="修改文件再次提交"><a href="#修改文件再次提交" class="headerlink" title="修改文件再次提交"></a>修改文件再次提交</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ <span class="comment"># modify operations</span></div><div class="line">$ git add example.txt</div><div class="line">$ git commit -m <span class="string">"modified"</span></div></pre></td></tr></table></figure>
+<h3 id="检查变化前和变化后的不同之处"><a href="#检查变化前和变化后的不同之处" class="headerlink" title="检查变化前和变化后的不同之处"></a>检查变化前和变化后的不同之处</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff [filename] (optional)</div></pre></td></tr></table></figure>
 <p>git diff 比较的是 index区域的对象和工作区的对象<br>关于git diff显示格式的问题，参考<a href="http://www.ruanyifeng.com/blog/2012/08/how_to_read_diff.html" target="_blank" rel="external">这里</a></p>
-<p>###版本重置/回退<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset --hard &lt;commit&gt; (HEAD)</div></pre></td></tr></table></figure></p>
+<h3 id="版本重置-回退"><a href="#版本重置-回退" class="headerlink" title="版本重置/回退"></a>版本重置/回退</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset --hard &lt;commit&gt; (HEAD)</div></pre></td></tr></table></figure>
 <p>注意：该命令将暂存区和工作区都还原到commit版本。<br><em>补救措施</em><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git reflog</div><div class="line">ea34578 HEAD@&#123;0&#125;: reset: moving to HEAD^</div><div class="line">3628164 HEAD@&#123;1&#125;: commit: append GPL</div><div class="line">ea34578 HEAD@&#123;2&#125;: commit: add distributed</div></pre></td></tr></table></figure></p>
 <p>找到对应版本的ID值，还原到该版本</p>
-<p>###观察历史版本中的内容(不需要重置)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git checkout &lt;commit&gt; <span class="comment"># 先检出对应的commit</span></div><div class="line">$ cat example.txt</div><div class="line">$ git checkout master <span class="comment"># 返回当前分支,让HEAD指针指回master分支</span></div></pre></td></tr></table></figure></p>
-<p>###撤销修改<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ git checkout -- filename   </div><div class="line"><span class="comment"># 用暂存区中的filename来替换工作区中的filename</span></div><div class="line"></div><div class="line"></div><div class="line">$ git reset &lt;commit&gt; &lt;path/filename&gt;  </div><div class="line">$ git reset HEAD filename  </div><div class="line"><span class="comment">#用HEAD中版本覆盖暂存区中的文件，工作区不变</span></div></pre></td></tr></table></figure></p>
-<p>###修正提交信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git commit --amend -m <span class="string">"comment"</span></div><div class="line"><span class="comment">#会覆盖之前的顶点提交，只显示一条提交信息</span></div></pre></td></tr></table></figure></p>
-<p>##删除文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git rm filename</div><div class="line"><span class="comment"># rm filename 只是删除了工作区中的文件，暂存区和版本库中还存在。</span></div><div class="line"><span class="comment"># git rm 将暂存区中的文件也删除</span></div><div class="line"><span class="comment"># git commit 之后版本库中的也会删除</span></div></pre></td></tr></table></figure></p>
-<p>##移动文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git mv a.file b.file/directory  </div><div class="line">$ <span class="comment"># 然后执行 git commit</span></div></pre></td></tr></table></figure></p>
-<p>###文件的详细信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git cat-file -t &lt;<span class="built_in">hash</span>&gt;</div><div class="line"><span class="comment">#hash值所代表的type(tree,blob,commit,tag)</span></div><div class="line"></div><div class="line">$ git cat-file -p &lt;<span class="built_in">hash</span>&gt;</div><div class="line"><span class="comment">#列出hash值所代表文件类型的详细信息</span></div></pre></td></tr></table></figure></p>
-<p>##03 分支管理</p>
-<p>###创建新分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b &lt;branchname&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="观察历史版本中的内容-不需要重置"><a href="#观察历史版本中的内容-不需要重置" class="headerlink" title="观察历史版本中的内容(不需要重置)"></a>观察历史版本中的内容(不需要重置)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git checkout &lt;commit&gt; <span class="comment"># 先检出对应的commit</span></div><div class="line">$ cat example.txt</div><div class="line">$ git checkout master <span class="comment"># 返回当前分支,让HEAD指针指回master分支</span></div></pre></td></tr></table></figure>
+<h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ git checkout -- filename   </div><div class="line"><span class="comment"># 用暂存区中的filename来替换工作区中的filename</span></div><div class="line"></div><div class="line"></div><div class="line">$ git reset &lt;commit&gt; &lt;path/filename&gt;  </div><div class="line">$ git reset HEAD filename  </div><div class="line"><span class="comment">#用HEAD中版本覆盖暂存区中的文件，工作区不变</span></div></pre></td></tr></table></figure>
+<h3 id="修正提交信息"><a href="#修正提交信息" class="headerlink" title="修正提交信息"></a>修正提交信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git commit --amend -m <span class="string">"comment"</span></div><div class="line"><span class="comment">#会覆盖之前的顶点提交，只显示一条提交信息</span></div></pre></td></tr></table></figure>
+<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git rm filename</div><div class="line"><span class="comment"># rm filename 只是删除了工作区中的文件，暂存区和版本库中还存在。</span></div><div class="line"><span class="comment"># git rm 将暂存区中的文件也删除</span></div><div class="line"><span class="comment"># git commit 之后版本库中的也会删除</span></div></pre></td></tr></table></figure>
+<h3 id="移动文件"><a href="#移动文件" class="headerlink" title="移动文件"></a>移动文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git mv a.file b.file/directory  </div><div class="line">$ <span class="comment"># 然后执行 git commit</span></div></pre></td></tr></table></figure>
+<h3 id="文件的详细信息"><a href="#文件的详细信息" class="headerlink" title="文件的详细信息"></a>文件的详细信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git cat-file -t &lt;<span class="built_in">hash</span>&gt;</div><div class="line"><span class="comment">#hash值所代表的type(tree,blob,commit,tag)</span></div><div class="line"></div><div class="line">$ git cat-file -p &lt;<span class="built_in">hash</span>&gt;</div><div class="line"><span class="comment">#列出hash值所代表文件类型的详细信息</span></div></pre></td></tr></table></figure>
+<h2 id="04-分支管理"><a href="#04-分支管理" class="headerlink" title="04 分支管理"></a>04 分支管理</h2><h3 id="创建新分支"><a href="#创建新分支" class="headerlink" title="创建新分支"></a>创建新分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b &lt;branchname&gt;</div></pre></td></tr></table></figure>
 <p>等价于<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git branch &lt;branchname&gt;</div><div class="line">$ git checkout &lt;branchname&gt;</div></pre></td></tr></table></figure></p>
-<p>###查看分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch</div></pre></td></tr></table></figure></p>
-<p>###合并某分支到当前分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git merge &lt;branchname&gt;</div><div class="line"><span class="comment"># 如果出现冲突，手动解决再提交</span></div></pre></td></tr></table></figure></p>
-<p>###删除分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -d &lt;branchname&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch</div></pre></td></tr></table></figure>
+<h3 id="合并某分支到当前分支"><a href="#合并某分支到当前分支" class="headerlink" title="合并某分支到当前分支"></a>合并某分支到当前分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git merge &lt;branchname&gt;</div><div class="line"><span class="comment"># 如果出现冲突，手动解决再提交</span></div></pre></td></tr></table></figure>
+<h3 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -d &lt;branchname&gt;</div></pre></td></tr></table></figure>
 <p>强行删除分支：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -D &lt;branchname&gt;</div></pre></td></tr></table></figure></p>
-<p>###切换分支时保存信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git stash  </div><div class="line"><span class="comment">#保存index区域和工作区的内容，然后就可以切换分支了</span></div></pre></td></tr></table></figure></p>
+<h3 id="切换分支时保存信息"><a href="#切换分支时保存信息" class="headerlink" title="切换分支时保存信息"></a>切换分支时保存信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git stash  </div><div class="line"><span class="comment">#保存index区域和工作区的内容，然后就可以切换分支了</span></div></pre></td></tr></table></figure>
 <p>查看stash储存的信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git stash list</div><div class="line">stash@&#123;0&#125;: WIP on dev: 6224937 add merge</div></pre></td></tr></table></figure></p>
 <p>取出stash存储的信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ git stash pop  </div><div class="line"><span class="comment">#恢复的同时把stash的内容删除</span></div><div class="line"></div><div class="line">$ git stash apply [&lt;stash@&#123;0&#125;&gt;]</div><div class="line"><span class="comment"># 恢复，stash内容并不删除  </span></div><div class="line">$ git stash drop</div></pre></td></tr></table></figure></p>
-<p>##04 Git 远程操作<br><img src="http://image.beekka.com/blog/2014/bg2014061202.jpg"></p>
-<p>###git remote 命令<br>git remote 显示所有主机名称<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git remote</div><div class="line">origin</div></pre></td></tr></table></figure></p>
+<h2 id="05-Git-远程操作"><a href="#05-Git-远程操作" class="headerlink" title="05 Git 远程操作"></a>05 Git 远程操作</h2><img src="http://image.beekka.com/blog/2014/bg2014061202.jpg">
+<h3 id="git-remote-命令"><a href="#git-remote-命令" class="headerlink" title="git remote 命令"></a>git remote 命令</h3><p>git remote 显示所有主机名称<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git remote</div><div class="line">origin</div></pre></td></tr></table></figure></p>
 <p>git remote -v 显示主机的网址<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git remote -v </div><div class="line">origin  git@github.com:jquery/jquery.git (fetch)</div><div class="line">origin  git@github.com:jquery/jquery.git (push)</div></pre></td></tr></table></figure></p>
 <p>git remote show &lt;主机名&gt;，显示该主机的详细信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote show &lt;主机名&gt;</div></pre></td></tr></table></figure></p>
 <p>git remote add 用于添加远程主机，关联远程库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote add &lt;主机名&gt; &lt;网址&gt;</div></pre></td></tr></table></figure></p>
 <p>git remote rm 用于删除远程主机，切断关联<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote rm &lt;主机名&gt;</div></pre></td></tr></table></figure></p>
 <p>git remote rename 用于远程主机的改名<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote rename &lt;原主机名&gt; &lt;新主机名&gt;</div></pre></td></tr></table></figure></p>
-<p>###git clone 命令<br>git clone 从远程主机克隆版本库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> &lt;版本库网址&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="git-clone-命令"><a href="#git-clone-命令" class="headerlink" title="git clone 命令"></a>git clone 命令</h3><p>git clone 从远程主机克隆版本库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> &lt;版本库网址&gt;</div></pre></td></tr></table></figure></p>
 <p>该命令会在本地主机生成一个目录，与远程主机的版本库同名。如果要指定不同的目录名，可以将目录名作为git clone命令的第二个参数。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> &lt;版本库网址&gt; &lt;本地目录名&gt;</div></pre></td></tr></table></figure></p>
-<p>###git fetch 命令<br>远程版本库有了更新，需要取回本地<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git fetch &lt;远程主机名&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="git-fetch-命令"><a href="#git-fetch-命令" class="headerlink" title="git fetch 命令"></a>git fetch 命令</h3><p>远程版本库有了更新，需要取回本地<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git fetch &lt;远程主机名&gt;</div></pre></td></tr></table></figure></p>
 <p>默认情况下，git fetch取回所有分支（branch）的更新。如果只想取回特定分支的更新，可以指定分支名。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git fetch &lt;远程主机名&gt; &lt;分支名&gt;</div></pre></td></tr></table></figure></p>
 <p>git branch命令的-r选项，可以用来查看远程分支，-a选项查看所有分支。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ git branch -r</div><div class="line">origin/master</div><div class="line"></div><div class="line">$ git branch -a</div><div class="line">* master</div><div class="line">remotes/origin/master</div></pre></td></tr></table></figure></p>
-<p>###git push 命令<br>git push命令用于将本地分支的更新，推送到远程主机。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="git-push-命令"><a href="#git-push-命令" class="headerlink" title="git push 命令"></a>git push 命令</h3><p>git push命令用于将本地分支的更新，推送到远程主机。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</div></pre></td></tr></table></figure></p>
 <p>如果省略远程分支名，则表示将本地分支推送与之存在”追踪关系”的远程分支（通常两者同名），如果该远程分支不存在，则会被新建。比如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin master</div></pre></td></tr></table></figure></p>
 <p>如果省略本地分支名，则表示删除指定的远程分支，因为这等同于推送一个空的本地分支到远程分支。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git push origin :master</div><div class="line"><span class="comment"># 等同于</span></div><div class="line">$ git push origin --delete master</div></pre></td></tr></table></figure></p>
 <p>如果远程主机的版本比本地版本更新，推送时Git会报错，要求先在本地做git pull合并差异，然后再推送到远程主机。</p>
-<p>###git pull 命令<br>git pull命令的作用是，取回远程主机某个分支的更新，再与本地的指定分支合并<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="git-pull-命令"><a href="#git-pull-命令" class="headerlink" title="git pull 命令"></a>git pull 命令</h3><p>git pull命令的作用是，取回远程主机某个分支的更新，再与本地的指定分支合并<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</div></pre></td></tr></table></figure></p>
 <p>如果远程分支是与当前分支合并，则冒号后面的部分可以省略。比如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git pull origin next:master</div></pre></td></tr></table></figure></p>
 <p>等价于<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git pull origin next</div></pre></td></tr></table></figure></p>
 <p>等价于<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git fetch origin  </div><div class="line">$ git merge origin/next</div></pre></td></tr></table></figure></p>
 <p>关于git的远程操作，详细课参考<a href="http://www.ruanyifeng.com/blog/2014/06/git_remote.html" target="_blank" rel="external">这里</a></p>
-<p>##05 使用Github</p>
-<p>###添加远程主机<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#SSH协议</span></div><div class="line">$ git remote add origin git@github.com:RominYue/example.git  </div><div class="line"></div><div class="line"><span class="comment">#http协议</span></div><div class="line">$ git remote add origin https://github.com/RominYue/example.git</div></pre></td></tr></table></figure></p>
-<p>###提交版本库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin master</div></pre></td></tr></table></figure></p>
-<p>##06 一些问题<br>使用ssh协议的时候,可能会屏蔽port 22,导致连接超时等问题.可以验证一下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div><div class="line"></div><div class="line">The authenticity of host ‘github.com (192.30.252.128)’ can’t be established. RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48. Are you sure you want to <span class="built_in">continue</span> connecting (yes/no)?</div></pre></td></tr></table></figure></p>
+<h2 id="06-使用Github"><a href="#06-使用Github" class="headerlink" title="06 使用Github"></a>06 使用Github</h2><h3 id="添加远程主机"><a href="#添加远程主机" class="headerlink" title="添加远程主机"></a>添加远程主机</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#SSH协议</span></div><div class="line">$ git remote add origin git@github.com:RominYue/example.git  </div><div class="line"></div><div class="line"><span class="comment">#http协议</span></div><div class="line">$ git remote add origin https://github.com/RominYue/example.git</div></pre></td></tr></table></figure>
+<h3 id="提交版本库"><a href="#提交版本库" class="headerlink" title="提交版本库"></a>提交版本库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin master</div></pre></td></tr></table></figure>
+<h2 id="07-一些问题"><a href="#07-一些问题" class="headerlink" title="07 一些问题"></a>07 一些问题</h2><p>使用ssh协议的时候,可能会屏蔽port 22,导致连接超时等问题.可以验证一下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div><div class="line"></div><div class="line">The authenticity of host ‘github.com (192.30.252.128)’ can’t be established. RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48. Are you sure you want to <span class="built_in">continue</span> connecting (yes/no)?</div></pre></td></tr></table></figure></p>
 <p>如果出现的不是上述信息,说明可能有问题.在.ssh目录下新建一个config文件,文件内容如下所示:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Host github.com</div><div class="line">User yourmail@email.com</div><div class="line">Port 443</div><div class="line">Hostname ssh.github.com</div><div class="line">identityfile ~/.ssh/id_rsa</div></pre></td></tr></table></figure></p>
 <p>保存即可使用ssh协议来传输文件.</p>
 
@@ -509,8 +514,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -529,7 +543,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -540,7 +554,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -611,6 +625,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#01-安装git与初步配置"><span class="nav-number">1.</span> <span class="nav-text">01 安装git与初步配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-创建版本库"><span class="nav-number">2.</span> <span class="nav-text">02 创建版本库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先创建一个工作目录"><span class="nav-number">2.1.</span> <span class="nav-text">首先创建一个工作目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#然后初始化新仓库"><span class="nav-number">2.2.</span> <span class="nav-text">然后初始化新仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#03-基本操作"><span class="nav-number">3.</span> <span class="nav-text">03 基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将工作区中的文件添加到版本库中"><span class="nav-number">3.1.</span> <span class="nav-text">将工作区中的文件添加到版本库中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查文件-分支当前状态"><span class="nav-number">3.2.</span> <span class="nav-text">检查文件/分支当前状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文件再次提交"><span class="nav-number">3.3.</span> <span class="nav-text">修改文件再次提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查变化前和变化后的不同之处"><span class="nav-number">3.4.</span> <span class="nav-text">检查变化前和变化后的不同之处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本重置-回退"><span class="nav-number">3.5.</span> <span class="nav-text">版本重置/回退</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#观察历史版本中的内容-不需要重置"><span class="nav-number">3.6.</span> <span class="nav-text">观察历史版本中的内容(不需要重置)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤销修改"><span class="nav-number">3.7.</span> <span class="nav-text">撤销修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修正提交信息"><span class="nav-number">3.8.</span> <span class="nav-text">修正提交信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除文件"><span class="nav-number">3.9.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移动文件"><span class="nav-number">3.10.</span> <span class="nav-text">移动文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件的详细信息"><span class="nav-number">3.11.</span> <span class="nav-text">文件的详细信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#04-分支管理"><span class="nav-number">4.</span> <span class="nav-text">04 分支管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建新分支"><span class="nav-number">4.1.</span> <span class="nav-text">创建新分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看分支"><span class="nav-number">4.2.</span> <span class="nav-text">查看分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并某分支到当前分支"><span class="nav-number">4.3.</span> <span class="nav-text">合并某分支到当前分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除分支"><span class="nav-number">4.4.</span> <span class="nav-text">删除分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换分支时保存信息"><span class="nav-number">4.5.</span> <span class="nav-text">切换分支时保存信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#05-Git-远程操作"><span class="nav-number">5.</span> <span class="nav-text">05 Git 远程操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#git-remote-命令"><span class="nav-number">5.1.</span> <span class="nav-text">git remote 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-clone-命令"><span class="nav-number">5.2.</span> <span class="nav-text">git clone 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-fetch-命令"><span class="nav-number">5.3.</span> <span class="nav-text">git fetch 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-push-命令"><span class="nav-number">5.4.</span> <span class="nav-text">git push 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-pull-命令"><span class="nav-number">5.5.</span> <span class="nav-text">git pull 命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#06-使用Github"><span class="nav-number">6.</span> <span class="nav-text">06 使用Github</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加远程主机"><span class="nav-number">6.1.</span> <span class="nav-text">添加远程主机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交版本库"><span class="nav-number">6.2.</span> <span class="nav-text">提交版本库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#07-一些问题"><span class="nav-number">7.</span> <span class="nav-text">07 一些问题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

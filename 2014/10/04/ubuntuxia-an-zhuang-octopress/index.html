@@ -12,6 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                 alert('密码错误！');
+                 history.back();
+            }
+        }
+    })();
+ </script>
 
 
 
@@ -79,18 +89,18 @@
 
 
 
-<meta name="description" content="介绍如何在ubuntu14.04环境下搭建octopress">
+<meta name="description" content="绍如何在ubuntu14.04环境下搭建octopress">
 <meta name="keywords" content="octopress, git, ruby">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu14.04下搭建Octopress">
 <meta property="og:url" content="https://rominyue.github.io/2014/10/04/ubuntuxia-an-zhuang-octopress/index.html">
 <meta property="og:site_name" content="沐凡">
-<meta property="og:description" content="介绍如何在ubuntu14.04环境下搭建octopress">
+<meta property="og:description" content="绍如何在ubuntu14.04环境下搭建octopress">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-04T15:39:05.000Z">
+<meta property="og:updated_time" content="2017-10-17T15:07:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu14.04下搭建Octopress">
-<meta name="twitter:description" content="介绍如何在ubuntu14.04环境下搭建octopress">
+<meta name="twitter:description" content="绍如何在ubuntu14.04环境下搭建octopress">
 
 
 
@@ -305,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Octopress/" itemprop="url" rel="index">
-                    <span itemprop="name">Octopress</span>
+                  <a href="/categories/工具杂谈/" itemprop="url" rel="index">
+                    <span itemprop="name">工具杂谈</span>
                   </a>
                 </span>
 
@@ -328,10 +338,6 @@
           
 
           
-              <div class="post-description">
-                  介绍如何在ubuntu14.04环境下搭建octopress
-              </div>
-          
 
         </div>
       </header>
@@ -346,24 +352,28 @@
       
 
       
-        <p>##第一步  安装 Git<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install git</div></pre></td></tr></table></figure></p>
-<p> 接下来就是对 git 的一些简单的配置.比如设定用户名和email,ssh或者http连接远程库github等.<br><a id="more"></a></p>
-<p>##第二步  Ruby环境搭建<br>选择一个工作目录,我选择的是home目录<br>如果没有 curl 工具的,命令行自行安装:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install curl</div></pre></td></tr></table></figure></p>
+        <blockquote class="blockquote-center"><p>绍如何在ubuntu14.04环境下搭建octopress</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="第一步-安装-Git"><a href="#第一步-安装-Git" class="headerlink" title="第一步  安装 Git"></a>第一步  安装 Git</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install git</div></pre></td></tr></table></figure>
+<p> 接下来就是对 git 的一些简单的配置.比如设定用户名和email,ssh或者http连接远程库github等.</p>
+<h2 id="第二步-Ruby环境搭建"><a href="#第二步-Ruby环境搭建" class="headerlink" title="第二步  Ruby环境搭建"></a>第二步  Ruby环境搭建</h2><p>选择一个工作目录,我选择的是home目录<br>如果没有 curl 工具的,命令行自行安装:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install curl</div></pre></td></tr></table></figure></p>
 <p>下面,接着进行ruby环境的搭建:<br><figure class="highlight bash"><figcaption><span>基于rvm安装ruby</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ curl -L https://get.rvm.io | bash -s stable --ruby</div><div class="line">$ <span class="comment"># 重启shell</span></div><div class="line">$ <span class="built_in">source</span> /usr/<span class="built_in">local</span>/rvm/scripts/rvm <span class="comment"># 安装过程中有提示,可能不是我这个路径</span></div><div class="line">$ <span class="comment"># 检查rvm是否正常</span></div><div class="line">$ rvm -v</div><div class="line">$ <span class="comment"># 检查Ruby版本</span></div><div class="line">$ ruby -v</div></pre></td></tr></table></figure></p>
 <p>如果rvm并没有同时安装ruby,可以手动安装:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ rvm install 1.9.3</div><div class="line">$ rvm use 1.9.3</div><div class="line">$ rvm rubygems latest</div></pre></td></tr></table></figure></p>
 <p>至此,ruby的环境搭建差不多算是完成了.</p>
-<p>##第三步 安装 Octopress<br>1) 克隆版本库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/imathis/octopress.git</div><div class="line">$ <span class="built_in">cd</span> octopress</div></pre></td></tr></table></figure></p>
+<h2 id="第三步-安装-Octopress"><a href="#第三步-安装-Octopress" class="headerlink" title="第三步 安装 Octopress"></a>第三步 安装 Octopress</h2><p>1) 克隆版本库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/imathis/octopress.git</div><div class="line">$ <span class="built_in">cd</span> octopress</div></pre></td></tr></table></figure></p>
 <p>2) 安装依赖关系<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ gem install bundler</div><div class="line">$ bundle install</div></pre></td></tr></table></figure></p>
 <p>当在执行 gem install bundler的时候下载过慢,可能是被墙了,将源改成淘宝的镜像:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ gem sources -a http://ruby.taobao.org/</div><div class="line">$ gem sources -r http://rubygems.org/</div><div class="line">$ gem sources -l</div></pre></td></tr></table></figure></p>
 <p>然后更改Octopress目录下的Gemfile文件，将source “<a href="http://rubygems.org/" target="_blank" rel="external">http://rubygems.org/</a>“ 改为 source “<a href="http://ruby.taobao.org/" target="_blank" rel="external">http://ruby.taobao.org/</a>“ ，保存然后在运行上述命令。</p>
 <p>3) 安装默认主题<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rake install</div></pre></td></tr></table></figure></p>
 <p>4) 测试是否安装成功<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ rake generate</div><div class="line">$ rake preview</div></pre></td></tr></table></figure></p>
 <p>打开浏览器输入<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 就可以看到预览页面了.</p>
-<p>##第四步 部署到 Github<br>1) 在 github 上新建一个 yourname.github.io 为名的 repository<br>2) 在 octopress 目录下运行 rake setup_github_pages命令,会让你输入新建 repo 的 ssh 地址<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ rake setup_github_pages</div><div class="line">Enter the <span class="built_in">read</span>/write url <span class="keyword">for</span> your repository(For example, 	<span class="string">'git@github.com:your_username/your_username.github.io.git) or '</span>https://github.com/your_username/your_username.github.io<span class="string">')</span></div><div class="line"><span class="string">$ Repository url:</span></div></pre></td></tr></table></figure></p>
-<p>2) 运行下列命令:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ rake generate </div><div class="line">$ rake deploy</div></pre></td></tr></table></figure></p>
-<p>3) 然后将本地source分支推送到github远程仓库做备份<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git add .</div><div class="line">$ git commit -m <span class="string">"your message"</span></div><div class="line">$ git push origin <span class="built_in">source</span></div></pre></td></tr></table></figure></p>
-<p>4) 测试<br>打开浏览器,输入 <a href="http://yourname.github.io" target="_blank" rel="external">http://yourname.github.io</a> 访问你自己的blog主页</p>
-<p>##第五步 基本操作<br>新建一篇博客<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rake new_post[<span class="string">"title"</span>]</div></pre></td></tr></table></figure></p>
+<h2 id="第四步-部署到-Github"><a href="#第四步-部署到-Github" class="headerlink" title="第四步 部署到 Github"></a>第四步 部署到 Github</h2><p>1) 在 github 上新建一个 yourname.github.io 为名的 repository</p>
+<p>2) 在 octopress 目录下运行 rake setup_github_pages命令,会让你输入新建 repo 的 ssh 地址<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ rake setup_github_pages</div><div class="line">Enter the <span class="built_in">read</span>/write url <span class="keyword">for</span> your repository(For example, 	<span class="string">'git@github.com:your_username/your_username.github.io.git) or '</span>https://github.com/your_username/your_username.github.io<span class="string">')</span></div><div class="line"><span class="string">$ Repository url:</span></div></pre></td></tr></table></figure></p>
+<p>3) 运行下列命令:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ rake generate </div><div class="line">$ rake deploy</div></pre></td></tr></table></figure></p>
+<p>4) 然后将本地source分支推送到github远程仓库做备份<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git add .</div><div class="line">$ git commit -m <span class="string">"your message"</span></div><div class="line">$ git push origin <span class="built_in">source</span></div></pre></td></tr></table></figure></p>
+<p>5) 测试<br>打开浏览器,输入 <a href="http://yourname.github.io" target="_blank" rel="external">http://yourname.github.io</a> 访问你自己的blog主页</p>
+<h2 id="第五步-基本操作"><a href="#第五步-基本操作" class="headerlink" title="第五步 基本操作"></a>第五步 基本操作</h2><p>新建一篇博客<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rake new_post[<span class="string">"title"</span>]</div></pre></td></tr></table></figure></p>
 <p>在 source/_posts目录下找到新生成的markdown文件,编辑博客<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ rake generate</div><div class="line">$ rake preview <span class="comment"># 预览 127.0.0.1:4000</span></div><div class="line">$ rake deploy  <span class="comment"># 发布</span></div></pre></td></tr></table></figure></p>
 <p>然后将本地source分支有选择的push到远程分支上.</p>
 
@@ -466,8 +476,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -486,7 +505,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -497,7 +516,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -568,6 +587,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步-安装-Git"><span class="nav-number">1.</span> <span class="nav-text">第一步  安装 Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步-Ruby环境搭建"><span class="nav-number">2.</span> <span class="nav-text">第二步  Ruby环境搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步-安装-Octopress"><span class="nav-number">3.</span> <span class="nav-text">第三步 安装 Octopress</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四步-部署到-Github"><span class="nav-number">4.</span> <span class="nav-text">第四步 部署到 Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五步-基本操作"><span class="nav-number">5.</span> <span class="nav-text">第五步 基本操作</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

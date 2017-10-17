@@ -12,6 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                 alert('密码错误！');
+                 history.back();
+            }
+        }
+    })();
+ </script>
 
 
 
@@ -79,18 +89,18 @@
 
 
 
-<meta name="description" content="leetcode 源代码">
+<meta name="description" content="N-sum Problem">
 <meta name="keywords" content="leetcode,c++,python,源代码">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode Problem 16-20 K-sum专题">
+<meta property="og:title" content="N-sum趣题">
 <meta property="og:url" content="https://rominyue.github.io/2014/10/17/day-four/index.html">
 <meta property="og:site_name" content="沐凡">
-<meta property="og:description" content="leetcode 源代码">
+<meta property="og:description" content="N-sum Problem">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-04T15:39:05.000Z">
+<meta property="og:updated_time" content="2017-10-17T15:11:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode Problem 16-20 K-sum专题">
-<meta name="twitter:description" content="leetcode 源代码">
+<meta name="twitter:title" content="N-sum趣题">
+<meta name="twitter:description" content="N-sum Problem">
 
 
 
@@ -126,7 +136,7 @@
 
 
 
-  <title>Leetcode Problem 16-20 K-sum专题 | 沐凡</title>
+  <title>N-sum趣题 | 沐凡</title>
   
 
 
@@ -270,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Leetcode Problem 16-20 K-sum专题</h1>
+          <h1 class="post-title" itemprop="name headline">N-sum趣题</h1>
         
 
         <div class="post-meta">
@@ -305,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">leetcode</span>
+                  <a href="/categories/数据结构和算法/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构和算法</span>
                   </a>
                 </span>
 
@@ -328,10 +338,6 @@
           
 
           
-              <div class="post-description">
-                  leetcode 源代码
-              </div>
-          
 
         </div>
       </header>
@@ -346,23 +352,23 @@
       
 
       
-        <p>源代码push到了github上,戳<a href="https://github.com/RominYue/leetcode" target="_blank" rel="external">这里</a></p>
-<p>###Problem 16: Letter Combinations of a Phone Number<br>题目描述: 手机上的虚拟键盘数字2-9都有对应的字母.现在给一个全是数字的字符串,让你把数字对应到相应的字母,写出所有的答案.<br><a id="more"></a><br>Input: Digit string “23”<br>Output: [“ad”, “ae”, “af”, “bd”, “be”, “bf”, “cd”, “ce”, “cf”]<br>解法:很简单的 dfs 或者 bfs</p>
-<p>###Problem 17: Valid Parentheses<br>题目描述:给定括号序列,判断其合法性<br>解法: 用栈模拟,经典题.  </p>
-<p>###K-sum 专题</p>
-<p>####1 sum<br>题目描述:在给定序列里寻找一个数,使之等于target,返回该数.<br>解法:将数组排序,二分查找, 时间复杂度O(logn)<br><figure class="highlight c++"><figcaption><span>Binary Search</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">binary_search</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> n,<span class="keyword">int</span> target)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="keyword">int</span> l = <span class="number">0</span>, r = n - <span class="number">1</span>, mid;</div><div class="line">    <span class="keyword">while</span>(l &lt;= r)</div><div class="line">    &#123;</div><div class="line">    	mid = (l + r) &gt;&gt; <span class="number">1</span>;</div><div class="line">        <span class="keyword">if</span>(a[mid] == target) <span class="keyword">return</span> a[mid];</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a[mid] &gt; target) r = mid - <span class="number">1</span>;</div><div class="line">        <span class="keyword">else</span> l = mid + <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <blockquote class="blockquote-center"><p>N-sum Problem</p>
+</blockquote>
+<a id="more"></a>
+<p>源代码push到了github上,戳<a href="https://github.com/RominYue/leetcode" target="_blank" rel="external">这里</a></p>
+<h3 id="N-sum-专题"><a href="#N-sum-专题" class="headerlink" title="N-sum 专题"></a>N-sum 专题</h3><h4 id="1-sum"><a href="#1-sum" class="headerlink" title="1 sum"></a>1 sum</h4><p>题目描述:在给定序列里寻找一个数,使之等于target,返回该数.<br>解法:将数组排序,二分查找, 时间复杂度O(logn)<br><figure class="highlight c++"><figcaption><span>Binary Search</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">binary_search</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> n,<span class="keyword">int</span> target)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="keyword">int</span> l = <span class="number">0</span>, r = n - <span class="number">1</span>, mid;</div><div class="line">    <span class="keyword">while</span>(l &lt;= r)</div><div class="line">    &#123;</div><div class="line">    	mid = (l + r) &gt;&gt; <span class="number">1</span>;</div><div class="line">        <span class="keyword">if</span>(a[mid] == target) <span class="keyword">return</span> a[mid];</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a[mid] &gt; target) r = mid - <span class="number">1</span>;</div><div class="line">        <span class="keyword">else</span> l = mid + <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>解法二: 当然,如果找到一个比较好的hash函数或者hashtable, O(1)的复杂度就可以找到.<br>下述所有的涉及二分查找的方法都可以用hash法代替,故不讨论.</p>
-<p>####2 sum<br>题目描述: 在给定序列中寻找所有满足且不重复的元组(x,y),x &lt;= y,使得 x + y == target<br>解法一: 参照 1 sum 的思路,先排序,固定住a,此时只要在数组中二分寻找存不存在数(target - x)即可<br><figure class="highlight c++"><figcaption><span>解法一</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; two_sum_one(<span class="keyword">int</span> a[],<span class="keyword">int</span> n,<span class="keyword">int</span> target)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; ans;</div><div class="line">	<span class="comment">//fix x</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</div><div class="line">    &#123;</div><div class="line">    	<span class="keyword">int</span> tmp = binary_search(a,n,target - a[i]);</div><div class="line">        <span class="keyword">if</span>(tmp == <span class="number">-1</span> || tmp == i)<span class="keyword">continue</span>;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">        	<span class="comment">//find a solution</span></div><div class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmpans;</div><div class="line">            tmpans.push_back(x);</div><div class="line">            tmpans.push_back(y);</div><div class="line">            ans.push_back(tmpans);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//remove the duplicate answer in vector ans</span></div><div class="line">    <span class="comment">//we can sort vector ans and do the remove action</span></div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="2-sum"><a href="#2-sum" class="headerlink" title="2 sum"></a>2 sum</h4><p>题目描述: 在给定序列中寻找所有满足且不重复的元组(x,y),x &lt;= y,使得 x + y == target<br>解法一: 参照 1 sum 的思路,先排序,固定住a,此时只要在数组中二分寻找存不存在数(target - x)即可<br><figure class="highlight c++"><figcaption><span>解法一</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; two_sum_one(<span class="keyword">int</span> a[],<span class="keyword">int</span> n,<span class="keyword">int</span> target)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; ans;</div><div class="line">	<span class="comment">//fix x</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</div><div class="line">    &#123;</div><div class="line">    	<span class="keyword">int</span> tmp = binary_search(a,n,target - a[i]);</div><div class="line">        <span class="keyword">if</span>(tmp == <span class="number">-1</span> || tmp == i)<span class="keyword">continue</span>;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">        	<span class="comment">//find a solution</span></div><div class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmpans;</div><div class="line">            tmpans.push_back(x);</div><div class="line">            tmpans.push_back(y);</div><div class="line">            ans.push_back(tmpans);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//remove the duplicate answer in vector ans</span></div><div class="line">    <span class="comment">//we can sort vector ans and do the remove action</span></div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>解法二: 对于一个有序数组 a &lt;= b &lt;= c &lt;= d, 我们可以发现以下的不等式成立:</p>
 <pre><code>a + d &lt;= b + d  
 a + d &gt;= a + c  
 </code></pre><p>设想如果有两个指针start,end, start指向a, end指向d,如果此时start + end &lt; target,那么依据上面的不等式,只需要将start指针迁移,后面的和一定比前面的和大.这样在O(n)的时间内就可以搞定. 排序的时间复杂度是O(nlogn),那么总的复杂度还是O(nlogn).这种思想在后面会用到.<br><figure class="highlight c++"><figcaption><span>解法二</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; two_sum_two(<span class="keyword">int</span> a[],<span class="keyword">int</span> n,<span class="keyword">int</span> target)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; ans;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>, k = n - <span class="number">1</span>; i &lt; k;)</div><div class="line">    &#123;</div><div class="line">    	<span class="comment">//this will remove the duplicate answer, think a bit</span></div><div class="line">    	<span class="keyword">if</span>(i &gt; <span class="number">0</span> &amp;&amp; a[i] == a[i<span class="number">-1</span>])<span class="keyword">continue</span>;</div><div class="line">        </div><div class="line">    	<span class="keyword">if</span>(a[i] + a[k] == target)</div><div class="line">        &#123;</div><div class="line">        	<span class="comment">//find a solution</span></div><div class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmpans;</div><div class="line">            tmpans.push_back(a[i]);</div><div class="line">            tmpans.push_back(a[k]);</div><div class="line">            ans.push_back(tmpans);</div><div class="line">            i++;</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a[i] + a[k] &lt; target) i++;</div><div class="line">        <span class="keyword">else</span> k --;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>####3 sum<br>题目描述: 在给定序列中寻找所有满足且不重复的元组(x,y,z),x &lt;= y &lt;= z,使得 x + y + z == target<br>经过上面的推导,显然此题也有两种解法.对于解法一,固定住x,y,二分查找z,时间复杂度是O(n2logn).对于解法二,固定住x,问题就便成了2 sum的问题.时间复杂度为O(n2).</p>
+<h4 id="3-sum"><a href="#3-sum" class="headerlink" title="3 sum"></a>3 sum</h4><p>题目描述: 在给定序列中寻找所有满足且不重复的元组(x,y,z),x &lt;= y &lt;= z,使得 x + y + z == target<br>经过上面的推导,显然此题也有两种解法.对于解法一,固定住x,y,二分查找z,时间复杂度是O(n2logn).对于解法二,固定住x,问题就便成了2 sum的问题.时间复杂度为O(n2).</p>
 <h4 id="4-sum"><a href="#4-sum" class="headerlink" title="4 sum"></a>4 sum</h4><p>对于此问题而言,可以延续上面的解法,但是偶数-sum问题可以做一下化简.将数组两两之和求出来,形成新的数组,在新的数组里面只要找出两个数之和等于target即可.即4 sum问题转化为了 2 sum + 2 sum的问题.上述两种方法随便挑.时间复杂度都是O(n2).</p>
-<h4 id="K-sum"><a href="#K-sum" class="headerlink" title="K sum"></a>K sum</h4><p>显然,可以将K sum问题拆分成 K - i sum  和 i sum 两个问题求解,酌情考虑.</p>
-<p>###Problem 18: 3Sum<br>如上面所讨论的,我的实现是采用了第两个指针的方法.</p>
-<p>###problem 19: 4Sum<br>如上面讨论,我的实现是转化成了 3 sum 问题,时间复杂度是O(n3).</p>
-<p>###Problem 20: 3Sum Closest<br>题目描述: 和3 sum不同的唯一一点就是,他要在数组中找3个数,使得和最接近target.输出这个和.<br>解法:大体思想不变.我用的是两个指针的方法,那么每次只要取 abs(target - sum)的最小值,并在更新的时候记录这个差是正的还是负的(和比target大还是小).<br><figure class="highlight c++"><figcaption><span>ThreeSumClosest</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">threeSumClosest</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;num, <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> ans = <span class="number">1e9</span> +<span class="number">7</span>,flag = <span class="number">1</span>;</div><div class="line"></div><div class="line">    sort(num.begin(),num.end());</div><div class="line"></div><div class="line">    <span class="keyword">int</span> len = num.size();</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len - <span class="number">2</span>; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>, k = len - <span class="number">1</span>; j &lt; k;)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">int</span> tmp = num[j] + num[k] + num[i];</div><div class="line">            <span class="keyword">if</span>(tmp &lt; target)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span>(target - tmp &lt; ans)</div><div class="line">                &#123;</div><div class="line">                    ans = target - tmp;</div><div class="line">                    flag = <span class="number">-1</span>;</div><div class="line">                &#125;</div><div class="line">                j++;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span></div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span>(tmp - target &lt; ans)</div><div class="line">                &#123;</div><div class="line">                    ans = tmp - target;</div><div class="line">                    flag = <span class="number">1</span>;</div><div class="line">                &#125;</div><div class="line">                k--;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> target + flag*ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="N-sum"><a href="#N-sum" class="headerlink" title="N sum"></a>N sum</h4><p>显然,可以将N sum问题拆分成 N - i sum  和 N sum 两个问题求解,酌情考虑.</p>
+<h3 id="Leetcode-18-3Sum"><a href="#Leetcode-18-3Sum" class="headerlink" title="Leetcode 18: 3Sum"></a>Leetcode 18: 3Sum</h3><p>如上面所讨论的,我的实现是采用了第两个指针的方法.</p>
+<h3 id="Leetcode-19-4Sum"><a href="#Leetcode-19-4Sum" class="headerlink" title="Leetcode 19: 4Sum"></a>Leetcode 19: 4Sum</h3><p>如上面讨论,我的实现是转化成了 3 sum 问题,时间复杂度是O(n3).</p>
+<h3 id="Leetcode-20-3Sum-Closest"><a href="#Leetcode-20-3Sum-Closest" class="headerlink" title="Leetcode 20: 3Sum Closest"></a>Leetcode 20: 3Sum Closest</h3><p>题目描述: 和3 sum不同的唯一一点就是,他要在数组中找3个数,使得和最接近target.输出这个和.<br>解法:大体思想不变.我用的是两个指针的方法,那么每次只要取 abs(target - sum)的最小值,并在更新的时候记录这个差是正的还是负的(和比target大还是小).<br><figure class="highlight c++"><figcaption><span>ThreeSumClosest</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">threeSumClosest</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;num, <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> ans = <span class="number">1e9</span> +<span class="number">7</span>,flag = <span class="number">1</span>;</div><div class="line"></div><div class="line">    sort(num.begin(),num.end());</div><div class="line"></div><div class="line">    <span class="keyword">int</span> len = num.size();</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len - <span class="number">2</span>; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>, k = len - <span class="number">1</span>; j &lt; k;)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">int</span> tmp = num[j] + num[k] + num[i];</div><div class="line">            <span class="keyword">if</span>(tmp &lt; target)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span>(target - tmp &lt; ans)</div><div class="line">                &#123;</div><div class="line">                    ans = target - tmp;</div><div class="line">                    flag = <span class="number">-1</span>;</div><div class="line">                &#125;</div><div class="line">                j++;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span></div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span>(tmp - target &lt; ans)</div><div class="line">                &#123;</div><div class="line">                    ans = tmp - target;</div><div class="line">                    flag = <span class="number">1</span>;</div><div class="line">                &#125;</div><div class="line">                k--;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> target + flag*ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -383,7 +389,7 @@ a + d &gt;= a + c
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://rominyue.github.io/2014/10/17/day-four/" title="Leetcode Problem 16-20 K-sum专题">https://rominyue.github.io/2014/10/17/day-four/</a>
+    <a href="https://rominyue.github.io/2014/10/17/day-four/" title="N-sum趣题">https://rominyue.github.io/2014/10/17/day-four/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -405,8 +411,8 @@ a + d &gt;= a + c
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/10/17/day-three/" rel="next" title="Leetcode Problem 11-15">
-                <i class="fa fa-chevron-left"></i> Leetcode Problem 11-15
+              <a href="/2014/10/08/bit-tree/" rel="next" title="树状数组小结">
+                <i class="fa fa-chevron-left"></i> 树状数组小结
               </a>
             
           </div>
@@ -496,7 +502,7 @@ a + d &gt;= a + c
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -507,7 +513,7 @@ a + d &gt;= a + c
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -588,7 +594,7 @@ a + d &gt;= a + c
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-sum"><span class="nav-number">1.</span> <span class="nav-text">4 sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#K-sum"><span class="nav-number">2.</span> <span class="nav-text">K sum</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#N-sum-专题"><span class="nav-number">1.</span> <span class="nav-text">N-sum 专题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-sum"><span class="nav-number">1.1.</span> <span class="nav-text">1 sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-sum"><span class="nav-number">1.2.</span> <span class="nav-text">2 sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-sum"><span class="nav-number">1.3.</span> <span class="nav-text">3 sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-sum"><span class="nav-number">1.4.</span> <span class="nav-text">4 sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#N-sum"><span class="nav-number">1.5.</span> <span class="nav-text">N sum</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-18-3Sum"><span class="nav-number">2.</span> <span class="nav-text">Leetcode 18: 3Sum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-19-4Sum"><span class="nav-number">3.</span> <span class="nav-text">Leetcode 19: 4Sum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-20-3Sum-Closest"><span class="nav-number">4.</span> <span class="nav-text">Leetcode 20: 3Sum Closest</span></a></li></ol></div>
             
 
           </div>

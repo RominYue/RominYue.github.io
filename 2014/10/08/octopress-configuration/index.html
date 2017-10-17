@@ -12,6 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                 alert('密码错误！');
+                 history.back();
+            }
+        }
+    })();
+ </script>
 
 
 
@@ -87,7 +97,7 @@
 <meta property="og:site_name" content="沐凡">
 <meta property="og:description" content="搭建完octopress之后用户做的一些个性化配置">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-04T15:39:05.000Z">
+<meta property="og:updated_time" content="2017-10-17T15:02:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="配置和定制 Octopress">
 <meta name="twitter:description" content="搭建完octopress之后用户做的一些个性化配置">
@@ -305,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Octopress/" itemprop="url" rel="index">
-                    <span itemprop="name">Octopress</span>
+                  <a href="/categories/工具杂谈/" itemprop="url" rel="index">
+                    <span itemprop="name">工具杂谈</span>
                   </a>
                 </span>
 
@@ -328,10 +338,6 @@
           
 
           
-              <div class="post-description">
-                  搭建完octopress之后用户做的一些个性化配置
-              </div>
-          
 
         </div>
       </header>
@@ -346,19 +352,22 @@
       
 
       
-        <p>##01 域名绑定<br>参见 唐巧的博客<a href="http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/" target="_blank" rel="external">象写程序一样写博客：搭建基于github的博客</a><br>注意:这里建立的 CNAME 文件需要的是二级域名 (比如 blog.xxx.com之类的).<br>如果是顶级域名的话 (xxx.com),需要在dns服务商那边建立一个A记录,指向207.97.227.245<br><a id="more"></a></p>
-<p>##02 添加侧边栏 分类(Category)列表<br>参见 <a href="http://codemacro.com/2012/07/18/add-category-list-to-octopress/" target="_blank" rel="external">loop in codes 为octopress添加分类(category)列表</a><br>其他关于侧边栏的定制,可以参考:</p>
+        <blockquote class="blockquote-center"><p>搭建完octopress之后用户做的一些个性化配置</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="01-域名绑定"><a href="#01-域名绑定" class="headerlink" title="01 域名绑定"></a>01 域名绑定</h2><p>参见 唐巧的博客<a href="http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/" target="_blank" rel="external">象写程序一样写博客：搭建基于github的博客</a><br>注意:这里建立的 CNAME 文件需要的是二级域名 (比如 blog.xxx.com之类的).<br>如果是顶级域名的话 (xxx.com),需要在dns服务商那边建立一个A记录,指向207.97.227.245<br><!-- more --></p>
+<h2 id="02-添加侧边栏-分类-Category-列表"><a href="#02-添加侧边栏-分类-Category-列表" class="headerlink" title="02 添加侧边栏 分类(Category)列表"></a>02 添加侧边栏 分类(Category)列表</h2><p>参见 <a href="http://codemacro.com/2012/07/18/add-category-list-to-octopress/" target="_blank" rel="external">loop in codes 为octopress添加分类(category)列表</a><br>其他关于侧边栏的定制,可以参考:</p>
 <ul>
 <li><a href="http://www.tuicool.com/articles/iErE3q" target="_blank" rel="external">自定义你的Octopress博客</a></li>
 <li><a href="http://www.tuicool.com/articles/V7RVb2Q" target="_blank" rel="external">Octopress侧边栏及评论系统定制</a></li>
 <li><a href="http://sunxb10.name/blog/archives/" target="_blank" rel="external">信笔涂鸦的侧边栏</a></li>
 </ul>
-<p>##03 添加/更换多说评论系统<br>参见 <a href="http://havee.me/internet/2013-02/add-duoshuo-commemt-system-into-octopress.html" target="_blank" rel="external">Havee’s Space 为 Octopress 添加多说评论系统</a><br>参见 <a href="http://droidyue.com/blog/2014/07/29/integrate-duoshuo-in-octopress/" target="_blank" rel="external">技术小黑屋 Ocotpress集成多说评论</a><br>参见 <a href="http://blog.lessfun.com/blog/2013/11/27/create-blog-in-github-page-using-octopress-and-binding-domain/" target="_blank" rel="external">浮生猎趣 用Octopress在Github搭建博客，并绑定独立域名</a></p>
-<p>##04 提高 Octopress的加载速度<br>参考 <a href="http://sunxb10.name/blog/201408/speed-up-octopress-blogs.html" target="_blank" rel="external">信笔涂鸦 提升 Octopress 博客的加载速度</a><br>参考 <a href="http://droidyue.com/blog/2014/06/22/fix-octopress-slow-loading-speed-issue-in-china-mainland/" target="_blank" rel="external">技术小黑屋 解决Octopress博客访问慢的问题</a></p>
-<p>##05 Octopress中的SEO<br>参考 <a href="http://codemacro.com/2012/09/06/octopress-seo/" target="_blank" rel="external">loop in codes Octopress中的SEO</a><br>参考 <a href="http://dingis.me/b/octopress-seo/" target="_blank" rel="external">Yi Ding 为Octopress做SEO优化</a></p>
-<p>##06 Octopress添加回到顶部功能<br>参考 <a href="http://droidyue.com/blog/2014/08/03/integrate-scroll-to-top-in-octopress/" target="_blank" rel="external">技术小黑屋 Octopress添加回到顶部功能</a><br>参考 <a href="http://www.tuicool.com/articles/qu6ZfiV" target="_blank" rel="external">Octopress添加回到顶部功能</a></p>
-<p>##07 Octopress文章摘要显示和主页显示文章数量<br>参考 <a href="http://blog.csdn.net/hankai1024/article/details/12850413" target="_blank" rel="external">HAN-Kai Octopress文章摘要显示和主页显示文章数量设定</a></p>
-<p>##08 使用 GitHub 和 GitCafe 托管 Octopress<br>参考 <a href="http://www.tuicool.com/articles/2yiMVjZ" target="_blank" rel="external">同时使用 GitHub 和 GitCafe 托管 octopress</a></p>
+<h2 id="03-添加-更换多说评论系统"><a href="#03-添加-更换多说评论系统" class="headerlink" title="03 添加/更换多说评论系统"></a>03 添加/更换多说评论系统</h2><p>参见 <a href="http://havee.me/internet/2013-02/add-duoshuo-commemt-system-into-octopress.html" target="_blank" rel="external">Havee’s Space 为 Octopress 添加多说评论系统</a><br>参见 <a href="http://droidyue.com/blog/2014/07/29/integrate-duoshuo-in-octopress/" target="_blank" rel="external">技术小黑屋 Ocotpress集成多说评论</a><br>参见 <a href="http://blog.lessfun.com/blog/2013/11/27/create-blog-in-github-page-using-octopress-and-binding-domain/" target="_blank" rel="external">浮生猎趣 用Octopress在Github搭建博客，并绑定独立域名</a></p>
+<h2 id="04-提高-Octopress的加载速度"><a href="#04-提高-Octopress的加载速度" class="headerlink" title="04 提高 Octopress的加载速度"></a>04 提高 Octopress的加载速度</h2><p>参考 <a href="http://sunxb10.name/blog/201408/speed-up-octopress-blogs.html" target="_blank" rel="external">信笔涂鸦 提升 Octopress 博客的加载速度</a><br>参考 <a href="http://droidyue.com/blog/2014/06/22/fix-octopress-slow-loading-speed-issue-in-china-mainland/" target="_blank" rel="external">技术小黑屋 解决Octopress博客访问慢的问题</a></p>
+<h2 id="05-Octopress中的SEO"><a href="#05-Octopress中的SEO" class="headerlink" title="05 Octopress中的SEO"></a>05 Octopress中的SEO</h2><p>参考 <a href="http://codemacro.com/2012/09/06/octopress-seo/" target="_blank" rel="external">loop in codes Octopress中的SEO</a><br>参考 <a href="http://dingis.me/b/octopress-seo/" target="_blank" rel="external">Yi Ding 为Octopress做SEO优化</a></p>
+<h2 id="06-Octopress添加回到顶部功能"><a href="#06-Octopress添加回到顶部功能" class="headerlink" title="06 Octopress添加回到顶部功能"></a>06 Octopress添加回到顶部功能</h2><p>参考 <a href="http://droidyue.com/blog/2014/08/03/integrate-scroll-to-top-in-octopress/" target="_blank" rel="external">技术小黑屋 Octopress添加回到顶部功能</a><br>参考 <a href="http://www.tuicool.com/articles/qu6ZfiV" target="_blank" rel="external">Octopress添加回到顶部功能</a></p>
+<h2 id="07-Octopress文章摘要显示和主页显示文章数量"><a href="#07-Octopress文章摘要显示和主页显示文章数量" class="headerlink" title="07 Octopress文章摘要显示和主页显示文章数量"></a>07 Octopress文章摘要显示和主页显示文章数量</h2><p>参考 <a href="http://blog.csdn.net/hankai1024/article/details/12850413" target="_blank" rel="external">HAN-Kai Octopress文章摘要显示和主页显示文章数量设定</a></p>
+<h2 id="08-使用-GitHub-和-GitCafe-托管-Octopress"><a href="#08-使用-GitHub-和-GitCafe-托管-Octopress" class="headerlink" title="08 使用 GitHub 和 GitCafe 托管 Octopress"></a>08 使用 GitHub 和 GitCafe 托管 Octopress</h2><p>参考 <a href="http://www.tuicool.com/articles/2yiMVjZ" target="_blank" rel="external">同时使用 GitHub 和 GitCafe 托管 octopress</a></p>
 
       
     </div>
@@ -463,8 +472,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -483,7 +501,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -494,7 +512,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -565,6 +583,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#01-域名绑定"><span class="nav-number">1.</span> <span class="nav-text">01 域名绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-添加侧边栏-分类-Category-列表"><span class="nav-number">2.</span> <span class="nav-text">02 添加侧边栏 分类(Category)列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#03-添加-更换多说评论系统"><span class="nav-number">3.</span> <span class="nav-text">03 添加/更换多说评论系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#04-提高-Octopress的加载速度"><span class="nav-number">4.</span> <span class="nav-text">04 提高 Octopress的加载速度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#05-Octopress中的SEO"><span class="nav-number">5.</span> <span class="nav-text">05 Octopress中的SEO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#06-Octopress添加回到顶部功能"><span class="nav-number">6.</span> <span class="nav-text">06 Octopress添加回到顶部功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#07-Octopress文章摘要显示和主页显示文章数量"><span class="nav-number">7.</span> <span class="nav-text">07 Octopress文章摘要显示和主页显示文章数量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#08-使用-GitHub-和-GitCafe-托管-Octopress"><span class="nav-number">8.</span> <span class="nav-text">08 使用 GitHub 和 GitCafe 托管 Octopress</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
