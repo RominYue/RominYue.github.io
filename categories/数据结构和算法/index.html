@@ -600,16 +600,20 @@
 
   
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
   <script type="text/javascript">
     new Valine({
         av: AV,
-        el: '#vcomments' ,
+        el: '#comment' ,
         verify: false,
         notify: false,
         app_id: 'crzvtGidcf9ETM1mUzKDB3ap-gzGzoHsz',
         app_key: '2O88JDm4iugKjctRTPx1ANUw',
         placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
+        avatar: 'mm'
+        guest_info: 'nick,mail'
+        pageSize: '10'
+        path: window.location.pathname
     });
   </script>
 
